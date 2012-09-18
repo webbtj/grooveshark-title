@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grooveshark Title Bookmarklet // webb.tj</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css" type="text/css"></link>
+</head>
+<body>
+    <h1>Grooveshark Title Bookmarklet</h1>
+    <h3>What is it?</h3>
+    <p>Personally, I like to listen to Grooveshark in a separate browser window minimized. In most opertaing systems, the minimized window shows the title of the website, or if nothing else, you can mouse over to see the title. So wouldn't it make sense if Grooveshark's page title automatically updated when the song changed? Well it doesn't. This is my solution. Install this bookmarklet, load up Grooveshark and click the bookmarklet. Grooveshark uses push state, which means the whole document does not reload when you navigate around (otherwise your songs would stop playing) so you just need to click the bookmarklet once when you first visit the site.</p>
+    <h3>How does it work?</h3>
+    <p>Add the Grooveshark Title Bookmarklet Button below to your browser's bookmark bar (drag and drop). Then any time you visit Grooveshark, click the bookmarklet and you're done.</p>
+    <h3>Get it!</h3>
+    <p>Drag the button below to your browser's bookmark bar.<p>
+        <!-- When making changes to shark.js please remember to reflect those changes here -->
+        <p><a class="lorem" href="javascript:(function%20doShark()%7B%0A%09var%20song_info%20%3D%20document.getElementById('playerDetails_current_song')%3B%0A%09var%20title_elm%20%3D%20document.getElementsByTagName('title')%5B0%5D%3B%0A%09if(typeof%20song_info%20!%3D%20'undefined'%20%26%26%20typeof%20title_elm%20!%3D%20'undefined')%7B%0A%09%09getSongTitle%20%3D%20function()%7B%0A%09%09%09song_info%20%3D%20document.getElementById('playerDetails_current_song')%3B%0A%09%09%09children%20%3D%20song_info.getElementsByTagName('a')%3B%0A%09%09%09song%20%3D%20children%5B0%5D.getAttribute(%22title%22)%3B%0A%09%09%09artist%20%3D%20children%5B1%5D.getAttribute(%22title%22)%3B%0A%09%09%09album%20%3D%20children%5B2%5D.getAttribute(%22title%22)%3B%0A%09%09%09title_string%20%3D%20song%20%2B%20%22%20-%20%22%20%2B%20artist%20%2B%20%22%20-%20%22%20%2B%20album%3B%0A%09%09%09title_elm.innerHTML%20%3D%20title_string%3B%0A%09%09%09setTimeout('getSongTitle()'%2C%205000)%3B%0A%09%09%7D%3B%0A%09%09getSongTitle()%3B%0A%09%7D%0A%7D)()%3B">Grooveshark Title</a></p>
+        <h3>Try it out!</h3>
+        <p class="footer">Tested in Chrome 22.</p>
+    </body>
+    </html>
